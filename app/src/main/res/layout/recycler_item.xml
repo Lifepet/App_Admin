@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="170dp"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <TextView
             android:text="~~님의 이동봉사 신청"
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:textColor="#000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,24 +26,6 @@
             app:layout_constraintVertical_bias="0.027"/>
 
     <TextView
-            android:text="rsy2951"
-            android:textSize="10dp"
-            android:textColor="#6e6d6d"
-            android:layout_width="wrap_content"
-            android:layout_height="12dp"
-            android:id="@+id/textView5"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="272dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0"/>
-
-    <TextView
             android:text="01054162951"
             android:textSize="12dp"
             android:textColor="#000"
@@ -57,8 +40,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.035"
-            app:layout_constraintVertical_bias="0.135"/>
+            app:layout_constraintHorizontal_bias="0.014"
+            app:layout_constraintVertical_bias="0.313"/>
 
     <TextView
             android:text="rsy2951"
@@ -75,8 +58,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.022"
-            app:layout_constraintVertical_bias="0.033"/>
+            app:layout_constraintHorizontal_bias="0.019"
+            app:layout_constraintVertical_bias="0.052"/>
 
     <TextView
             android:text="13시부터"
@@ -93,8 +76,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.143"
-            app:layout_constraintVertical_bias="0.12"/>
+            app:layout_constraintHorizontal_bias="0.123"
+            app:layout_constraintVertical_bias="0.614"/>
 
     <TextView
             android:text="2019-05-20"
@@ -102,7 +85,7 @@
             android:textColor="#6e6d6d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView11"
+            android:id="@+id/recycler_item_date"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,11 +94,29 @@
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.976"
-            app:layout_constraintVertical_bias="0.37"/>
+            app:layout_constraintVertical_bias="0.945"/>
 
-    <ImageView
+
+    <TextView
+            android:text="2019-05-20"
+            android:textSize="10dp"
+            android:textColor="#6e6d6d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/recycler_item_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.017"
+            app:layout_constraintVertical_bias="0.945"/>
+
+    <ImageView
+            android:layout_width="21dp"
+            android:layout_height="17dp"
             app:srcCompat="@drawable/call_icon"
             android:id="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent"
@@ -126,12 +127,12 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.013"
-            app:layout_constraintVertical_bias="0.122"/>
+            app:layout_constraintHorizontal_bias="0.026"
+            app:layout_constraintVertical_bias="0.307"/>
 
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             app:srcCompat="@drawable/talk_icon"
             android:id="@+id/imageView2"
             android:layout_marginTop="8dp"
@@ -142,12 +143,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.021"
-            app:layout_constraintVertical_bias="0.016"/>
+            app:layout_constraintHorizontal_bias="0.026"
+            app:layout_constraintVertical_bias="0.054"/>
 
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="15dp"
+            android:layout_height="17dp"
             app:srcCompat="@drawable/clock_icon"
             android:id="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent"
@@ -158,8 +159,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.021"
-            app:layout_constraintVertical_bias="0.109"/>
-
-
+            app:layout_constraintHorizontal_bias="0.026"
+            app:layout_constraintVertical_bias="0.625"/>
 </android.support.constraint.ConstraintLayout>
