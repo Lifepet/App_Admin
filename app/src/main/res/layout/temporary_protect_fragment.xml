@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_pencil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="90dp"
+            android:layout_marginRight="15sp"
+            android:src="@drawable/pencil_icon"
+            android:visibility="invisible"
+            app:backgroundTint="#92cf73"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp" />
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="15sp"
+            android:backgroundTint="#92cf73"
+            android:src="@drawable/add_icon" />
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+    </android.support.v7.widget.RecyclerView>
+
+</FrameLayout>
