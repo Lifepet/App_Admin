@@ -5,7 +5,7 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_pencil"
+            android:id="@+id/temporary_protect_fragment_fab_pencil"
             app:fabSize="mini"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             app:pressedTranslationZ="12dp" />
 
     <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/temporary_protect_fragment_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
@@ -27,7 +27,7 @@
             android:backgroundTint="#92cf73"
             android:src="@drawable/add_icon" />
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/temporary_protect_fragment_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical">
