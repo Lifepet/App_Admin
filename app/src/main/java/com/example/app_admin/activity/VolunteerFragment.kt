@@ -1,0 +1,53 @@
+package com.example.app_admin.activity
+
+import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.example.app_admin.R
+import com.example.app_admin.adapter.VolunteerAdapter
+import com.example.app_admin.connecter.Connecter
+import com.example.app_admin.model.VolunteerModel
+import com.example.app_admin.util.getToken
+import kotlinx.android.synthetic.main.move_volunteer_fragment.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+class VolunteerFragment : Fragment() {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val layout = inflater.inflate(R.layout.move_volunteer_fragment, container, false) as ViewGroup
+        volunteer()
+        return layout
+    }
+
+    fun volunteer() {
+        Connecter.api.getVolunteerList(getToken(activity!!.applicationContext))
+            .enqueue(object : Callback<ArrayList<VolunteerModel>> {
+                override fun onFailure(call: Call<ArrayList<VolunteerModel>>, t: Throwable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onResponse(
+                    call: Call<ArrayList<VolunteerModel>>,
+                    response: Response<ArrayList<VolunteerModel>>
+                ) {
+                    val volunteerModel = arrayListOf<VolunteerModel>()
+                    response.body()?.forEach {
+                        volunteerModel.add(
+                            VolunteerModel(
+                                it.apply_id,
+                                it.author,
+                                it.creation_date,
+                                it.phone,
+                                it.possible_time
+                            )
+                        )
+                    }
+                    move_volunteer_fragment_recyclerView.adapter = VolunteerAdapter(volunteerModel)
+                }
+
+            })
+    }
+}
