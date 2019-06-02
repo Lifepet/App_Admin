@@ -26,15 +26,15 @@ class VolunteerAdapter(val volunteerModel: ArrayList<VolunteerModel>) :
     inner class VolunteerViewHodler(view: View) : RecyclerView.ViewHolder(view) {
         val textAuthor = view.find<TextView>(R.id.move_volunteer_recycler_item_title)
         val textNum = view.find<TextView>(R.id.move_volunteer_recycler_item_phoneNumber)
-        val textKakao = view.find<TextView>(R.id.move_volunteer_recycler_item_kakaoTalk_id)
         val textDate = view.find<TextView>(R.id.move_volunteer_recycler_item_date)
+        val textKakao = view.find<TextView>(R.id.move_volunteer_recycler_item_kakaoTalk_id)
         val textTime = view.find<TextView>(R.id.move_volunteer_recycler_item_time)
         fun bind(volunteerModel: VolunteerModel) {
             textAuthor.text = volunteerModel.author + " 의 이동봉사 신청"
             textNum.text = volunteerModel.phone
             textKakao.text = volunteerModel.phone
-            textDate.text = volunteerModel.creation_date
             textTime.text = volunteerModel.possible_time + " 부터"
+            textDate.text = volunteerModel.creation_date
         }
     }
 }

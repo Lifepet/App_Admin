@@ -22,21 +22,11 @@ class DetailAdoptActivity : AppCompatActivity() {
         val intent = intent
         val id = intent.getStringExtra("id")
         val textTitle = find<TextView>(R.id.adopt_deatail_title)
-        Connecter.api.getAdoptDetail(getToken(applicationContext), id).enqueue(object : Callback<AdoptModel> {
-            override fun onFailure(call: Call<AdoptModel>, t: Throwable) {
-
-            }
-
-            override fun onResponse(call: Call<AdoptModel>, response: Response<AdoptModel>) {
-                val adoptModel = response.body()!!
-                Log.d("test", adoptModel.author)
-                textTitle.text = adoptModel.author + "님의 입양신청"
-                adopt_deatail_coment.text = "할말: " + adoptModel.content
-                adopt_deatail_date.text = adoptModel.creation_date
-                adopt_deatail_location.text = adoptModel.current_location
-                adopt_detail_phoneNumber.text = adoptModel.phone
-            }
-
-        })
+        adopt_deatail_coment.text = "할말: " + intent.getStringExtra("content")
+        adopt_detail_phoneNumber.text = intent.getStringExtra("phone")
+        adopt_deatail_location.text = intent.getStringExtra("location")
+        adopt_detail_kakaoTalk_id.text = intent.getStringExtra("kakao")
+        adopt_deatail_title.text = intent.getStringExtra("title") + " 님의 입양신청"
+        adopt_deatail_date.text = intent.getStringExtra("date")
     }
 }

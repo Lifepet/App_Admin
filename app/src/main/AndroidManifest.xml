@@ -27,6 +27,8 @@
         <activity android:name=".activity.DetailAdoptActivity"/>
 
         <activity android:name=".activity.DetailProtectActivity"/>
+
+        <activity android:name=".activity.DetailVolunteerActivity"/>
     </application>
 
 </manifest>

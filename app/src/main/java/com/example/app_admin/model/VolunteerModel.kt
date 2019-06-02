@@ -5,5 +5,6 @@ data class VolunteerModel(
     var author: String,
     var creation_date: String,
     var phone: String,
-    var possible_time: String
+    var possible_time: String,
+    var content: String
 )

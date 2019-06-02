@@ -37,7 +37,15 @@ class AdoptFragment : Fragment() {
                     }
 
                     override fun onItemClick(view: View, position: Int) {
-                        activity?.startActivity<DetailAdoptActivity>("id" to adoptModel[position].apply_id)
+                        activity?.startActivity<DetailAdoptActivity>(
+                            "id" to adoptModel[position].apply_id,
+                            "content" to adoptModel[position].content,
+                            "phone" to adoptModel[position].phone,
+                            "location" to adoptModel[position].current_location,
+                            "date" to adoptModel[position].creation_date,
+                            "title" to adoptModel[position].author,
+                            "kakao" to adoptModel[position].phone
+                        )
                     }
 
                 })
