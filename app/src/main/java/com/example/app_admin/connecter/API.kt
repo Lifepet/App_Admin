@@ -30,4 +30,16 @@ interface API {
     @GET("/apply/move/")
     @Headers("Content-Type: application/json")
     fun getVolunteerList(@Header("Authorization") token: String): Call<ArrayList<VolunteerModel>>
+
+    @GET("/apply/adoption/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getAdoptDetail(@Header("Authorization") token: String, @Path("post_id") postId: String?): Call<AdoptModel>
+
+    @GET("/apply/care/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getProtectLDetail(@Header("Authorization") token: String, @Path("post_id") postId: String?): Call<ProtectModel>
+
+    @GET("/apply/move/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getVolunteerDetail(@Header("Authorization") token: String, @Path("post_id") postId: String?): Call<VolunteerModel>
 }

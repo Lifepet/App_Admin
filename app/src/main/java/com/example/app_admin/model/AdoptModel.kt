@@ -7,5 +7,5 @@ data class AdoptModel(
     var creation_date: String,
     var author: String,
     var current_location: String,
-    var apply_id: Int
+    var apply_id: String
 )

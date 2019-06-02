@@ -6,5 +6,6 @@ data class ProtectModel(
     var creation_date: String,
     var possible_month: String,
     var current_location: String,
-    var phone:String
+    var phone:String,
+    var content:String
 )
