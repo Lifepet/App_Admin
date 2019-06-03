@@ -42,4 +42,12 @@ interface API {
     @GET("/apply/move/{post_id}")
     @Headers("Content-Type: application/json")
     fun getVolunteerDetail(@Header("Authorization") token: String, @Path("post_id") postId: String?): Call<VolunteerModel>
+
+    @POST("post/adoption/")
+    @Multipart
+    fun postAdopt(
+        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("sex") sex: RequestBody, @Part(
+            "content"
+        ) content: RequestBody, @Part image: MultipartBody.Part
+    ): Call<Unit>
 }

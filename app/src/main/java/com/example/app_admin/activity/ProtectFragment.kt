@@ -1,6 +1,7 @@
 package com.example.app_admin.activity
 
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -24,6 +25,7 @@ class ProtectFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layout = inflater.inflate(R.layout.temporary_protect_fragment, container, false) as ViewGroup
         val protectRecyclerView = layout.find<RecyclerView>(R.id.temporary_protect_fragment_recyclerView)
+        val protectFab = layout.find<FloatingActionButton>(R.id.temporary_protect_fragment_fab)
         protect()
         protectRecyclerView.addOnItemTouchListener(
             RecyclerItemClickListener(
@@ -48,6 +50,7 @@ class ProtectFragment : Fragment() {
 
                 })
         )
+        protectFab.setOnClickListener { activity!!.startActivity<ProtectWriteActivity>() }
         return layout
     }
 

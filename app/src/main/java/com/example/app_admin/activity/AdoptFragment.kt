@@ -1,6 +1,7 @@
 package com.example.app_admin.activity
 
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -26,6 +27,7 @@ class AdoptFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layout = inflater.inflate(R.layout.adopt_fragment, container, false) as ViewGroup
         val adoptRecyclerView = layout.find<RecyclerView>(R.id.adopt_fragment_recyclerView)
+        val adoptFab = layout.find<FloatingActionButton>(R.id.adopt_fragment_fab)
         getAdopt()
         adoptRecyclerView.addOnItemTouchListener(
             RecyclerItemClickListener(
@@ -33,7 +35,6 @@ class AdoptFragment : Fragment() {
                 adoptRecyclerView,
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onLongItemClick(view: View?, position: Int) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
 
                     override fun onItemClick(view: View, position: Int) {
@@ -50,6 +51,7 @@ class AdoptFragment : Fragment() {
 
                 })
         )
+        adoptFab.setOnClickListener { activity!!.startActivity<AdoptWriteActivity>() }
         return layout
     }
 
