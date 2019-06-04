@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import com.example.app_admin.MainActivity
 import com.example.app_admin.R
 import com.example.app_admin.connecter.Connecter
@@ -32,7 +33,7 @@ class VolunteerWriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_volunteer_write)
 
-        imageView4.setOnClickListener {
+        ic_image.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = MediaStore.Images.Media.CONTENT_TYPE
             startActivityForResult(intent, PICK_FROM_ALBUM)
@@ -70,7 +71,7 @@ class VolunteerWriteActivity : AppCompatActivity() {
         val options = BitmapFactory.Options()
         val originalBm = BitmapFactory.decodeFile(imageUrl!!.getAbsolutePath(), options)
         imageView4.setImageBitmap(originalBm)
-
+        ic_image.visibility = View.INVISIBLE
     }
 
     fun postVolunteer() {

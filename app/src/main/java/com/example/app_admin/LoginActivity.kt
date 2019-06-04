@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.app_admin.connecter.Connecter
 import com.example.app_admin.model.LoginModel
+import com.example.app_admin.util.getToken
 import com.example.app_admin.util.saveToken
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
@@ -19,7 +20,10 @@ class LoginActivity : AppCompatActivity() {
         bt_login.setOnClickListener { login() }
 
         text_signup.setOnClickListener { startActivity<SignUpActivity>() }
-
+        if (getToken(applicationContext) != "") {
+            startActivity<MainActivity>()
+            finish()
+        }
     }
 
     fun login() {
