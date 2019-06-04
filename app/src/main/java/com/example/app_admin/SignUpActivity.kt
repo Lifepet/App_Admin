@@ -14,7 +14,17 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
-        button.setOnClickListener { postSignup() }
+        button.setOnClickListener {
+            if (edit_pw.equals(edit_pwcheck)) {
+                if (edit_code.equals("6902d3a1-b15d-4aa1-8bbc-c957294493d1")) {
+                    postSignup()
+                } else {
+                    toast("관리자 코드가 바르지 않습니다.")
+                }
+            } else {
+                toast("비밀번호 입력이 바르지 않습니다.")
+            }
+        }
 
     }
 

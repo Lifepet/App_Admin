@@ -46,8 +46,23 @@ interface API {
     @POST("post/adoption/")
     @Multipart
     fun postAdopt(
-        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("sex") sex: RequestBody, @Part(
-            "content"
-        ) content: RequestBody, @Part image: MultipartBody.Part
+        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("sex") sex: RequestBody,
+        @Part("content") content: RequestBody, @Part("age") age: RequestBody, @Part("kind") kind: RequestBody, @Part image: MultipartBody.Part
+    ): Call<Unit>
+
+    @POST("post/care/")
+    @Multipart
+    fun postCare(
+        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("sex") sex: RequestBody,
+        @Part("content") content: RequestBody, @Part("age") age: RequestBody, @Part("kind") kind: RequestBody, @Part("current_location") location: RequestBody, @Part image: MultipartBody.Part
+    ): Call<Unit>
+
+    @POST("post/move/")
+    @Multipart
+    fun postVolunteer(
+        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("sex") sex: RequestBody,
+        @Part("content") content: RequestBody, @Part("kind") kind: RequestBody, @Part("current_location") location: RequestBody, @Part(
+            "destination_location"
+        ) end_location: RequestBody, @Part("age") age: RequestBody, @Part image: MultipartBody.Part
     ): Call<Unit>
 }

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageView
+import com.example.app_admin.MainActivity
 import com.example.app_admin.R
 import com.example.app_admin.connecter.Connecter
 import com.example.app_admin.util.getToken
@@ -16,6 +17,10 @@ import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.File
 
 class AdoptWriteActivity : AppCompatActivity() {
@@ -31,6 +36,7 @@ class AdoptWriteActivity : AppCompatActivity() {
             intent.type = MediaStore.Images.Media.CONTENT_TYPE
             startActivityForResult(intent, PICK_FROM_ALBUM)
         }
+        bt_write.setOnClickListener { postAdopt() }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -65,11 +71,27 @@ class AdoptWriteActivity : AppCompatActivity() {
 
     }
 
-    fun postAdopt(){
-        val requestBody = RequestBody.create(MediaType.parse("image/*"), imageUrl)
-//        val title = RequestBody.create(MediaType.parse("text/plane"), reviewTitle.value.toString())
-//        val content = RequestBody.create(MediaType.parse("text/plane"), reviewContent.value.toString())
-//        val fileName = MultipartBody.Part.createFormData("image", file.name, requestBody)
-//        Connecter.api.postAdopt(getToken(applicationContext),)
+    fun postAdopt() {
+        val file = File(imageUrl?.toURI())
+        val requestBody = RequestBody.create(MediaType.parse("image/*"), file)
+        val title = RequestBody.create(MediaType.parse("text/plane"), edit_title.text.toString())
+        val content = RequestBody.create(MediaType.parse("text/plane"), editText4.text.toString())
+        val sex = RequestBody.create(MediaType.parse("text/plane"), "남")
+        val kind = RequestBody.create(MediaType.parse("text/plane"), edit_type.text.toString())
+        val age = RequestBody.create(MediaType.parse("text/plane"), edit_age.text.toString())
+        val fileName = MultipartBody.Part.createFormData("image", imageUrl!!.name, requestBody)
+        Connecter.api.postAdopt(getToken(applicationContext), title, sex, content, age, kind, fileName).enqueue(object :
+            Callback<Unit> {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                if (response.code() == 201) {
+                    startActivity<MainActivity>()
+                }
+            }
+
+        })
     }
 }

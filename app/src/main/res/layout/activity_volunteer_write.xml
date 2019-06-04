@@ -85,12 +85,13 @@
                 android:hint="출발지"
                 android:textSize="14sp"
                 android:padding="8dp"
-                android:id="@+id/editText5"/>
+                android:id="@+id/edit_start"/>
 
         <EditText
+                android:id="@+id/edit_end"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:layout_constraintStart_toEndOf="@+id/editText5"
+                app:layout_constraintStart_toEndOf="@+id/edit_start"
                 app:layout_constraintWidth_percent="0.5"
                 android:hint="도착지"
                 android:textSize="14sp"
@@ -158,25 +159,9 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.05"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/back_write"
-            android:hint="날짜 ex) 20190607"
-            android:textSize="14sp"
-            android:padding="8dp"
-            android:id="@+id/editText6"/>
-
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
             app:layout_constraintHeight_percent="0.2"
             android:background="@drawable/back_write"
-            app:layout_constraintTop_toBottomOf="@+id/editText6"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -189,6 +174,7 @@
             android:id="@+id/edit_content"/>
 
     <Button
+            android:id="@+id/bt_write"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintHeight_percent="0.06"
